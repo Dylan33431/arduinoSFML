@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
-#include "SerialPort.h"
 #include "LightLevel.h"
+#include "SerialPort.h"
 
 
 
@@ -15,13 +15,17 @@ public:
 
 	void Update();
 
-	std::string GetMessage();
-	void SendMessage(std::string aMessage);
+	std::string getMessage();
+	void sendMessage(std::string aMessage);
+
 private:
+	SerialPort arduino;
 	LightLevel lightlevel;
-	char output[MAX_DATA_LENGTH];
-	char incoming[MAX_DATA_LENGTH];
+	char output[SerialPort::MAX_DATA_SIZE];
+	char incoming[SerialPort::MAX_DATA_SIZE];
 	bool isStarted;
-	char port[MAX_DATA_LENGTH];
-	//SerialPort arduino;
+	char port[SerialPort::MAX_DATA_SIZE];
+
+
+	bool sendData;
 };

@@ -14,18 +14,7 @@ void Game::gameUpdate(float deltaTime)
 {
 	for (Entity* e : *GetObjects())
 	{
-		if (e->getEntityTag() == "obstacle")
-		{
-			e->update(deltaTime);
-		}
-		if (e->getEntityTag() == "player")
-		{
-			e->update(deltaTime);
-		}
-		if (e->getEntityTag() == "enemy")
-		{
-			e->update(deltaTime);
-		}
+		e->update(deltaTime);
 	}
 }
 
@@ -71,4 +60,5 @@ Entity* Game::GetSpecificEntity(std::string aSpecificName)
 			return e;
 		}
 	}
+	return nullptr;
 }

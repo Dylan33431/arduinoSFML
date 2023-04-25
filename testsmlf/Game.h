@@ -1,6 +1,4 @@
 #pragma once
-#include <SFML/System.hpp>
-#include <SFML/Graphics.hpp>
 #include <iostream>
 #include <string>
 #include <list>

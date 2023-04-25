@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <iostream>
 
 class Engine;
 
@@ -10,8 +11,10 @@ public:
 	~LightLevel();
 
 	void update();
-	int getLightLevel();
+	//std::string
 private:
+	int getLightLevel();
 	void setLightLevel(int lightLevel);
 	int currentLightLevel;
+	std::string string;
 };

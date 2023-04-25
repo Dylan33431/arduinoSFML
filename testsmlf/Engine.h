@@ -1,20 +1,20 @@
 #pragma once
 #include "Entity.h"
+#include "Game.h"
+#include "LightLevel.h"
+#include "ArdiunoConnection.h"
 #include "Player.h"
 #include "Obstacle.h"
 #include "Portal.h"
 #include "Enemy.h"
-#include "Game.h"
-#include "LightLevel.h"
-#include "ArdiunoConnection.h"
 #include <string>
 #include <iostream>
-
-class Game;
 
 class LightLevel;
 
 class ArdiunoConnection;
+
+class Game;
 
 class Engine
 {

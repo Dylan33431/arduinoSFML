@@ -2,7 +2,6 @@
 
 LightLevel::LightLevel()
 {
-
 }
 
 LightLevel::~LightLevel()
@@ -28,12 +27,14 @@ void LightLevel::update()
 	{
 		setLightLevel(4);
 	}
+	string = std::to_string(getLightLevel());
 }
 
 void LightLevel::setLightLevel(int lightLevel)
 {
 	currentLightLevel = lightLevel;
 }
+
 int LightLevel::getLightLevel()
 {
 	return currentLightLevel;

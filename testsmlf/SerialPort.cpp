@@ -1,23 +1,23 @@
 #include "SerialPort.h"
 
-SerialPort::SerialPort(char* portName)
+SerialPort::SerialPort()
 {
     this->connected = false;
-
-    this->handler = CreateFileA(static_cast<LPCSTR>(portName),
+    TCHAR* pcCommPort = (TCHAR*)TEXT("COM6");
+    this->handler = CreateFile(pcCommPort,
                                 GENERIC_READ | GENERIC_WRITE,
                                 0,
                                 NULL,
                                 OPEN_EXISTING,
-                                FILE_ATTRIBUTE_NORMAL,
+                                0,
                                 NULL);
     if (this->handler == INVALID_HANDLE_VALUE) {
         if (GetLastError() == ERROR_FILE_NOT_FOUND) {
-            printf("ERROR: Handle was not attached. Reason: %s not available\n", portName);
+            std::cout << "ERROR: Handle was not attached. Reason: %s not available\n" << std::to_string(GetLastError());
         }
         else
         {
-            printf("ERROR!!!");
+            std::cout << std::to_string(GetLastError()) << std::endl;
         }
     }
     else {

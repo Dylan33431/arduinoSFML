@@ -42,13 +42,13 @@
     <ClCompile Include="ObstacleMovingBasedOnLight.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ArdiunoConnection.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="LightLevel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SerialPort.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ArdiunoConnection.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -77,13 +77,13 @@
     <ClInclude Include="ObstacleMovingBasedOnLight.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ArdiunoConnection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="LightLevel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SerialPort.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ArdiunoConnection.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
