@@ -1,7 +1,7 @@
 #include "Obstacle.h"
 
 Obstacle::Obstacle(std::string aEntityTag,
-				   float anEntitySpeed, 
+				   float anEntitySpeed,
 				   float aScale,
 				   int aPointCountEntity,
 				   int astartingPosX,
@@ -45,7 +45,7 @@ void Obstacle::update(float deltaTime)
 	obstacleMovement(deltaTime);
 }
 
-int Obstacle::getTimeOfMovement() 
+int Obstacle::getTimeOfMovement()
 {
 	return TimeOfMovement;
 }
@@ -134,24 +134,24 @@ void Obstacle::obstacleMovement(float deltaTime)
 {
 	if (getReturning() == true)
 	{
-	returningH();
-	returningV();
+		returningH();
+		returningV();
 	}
 
-	if (getMovingRight() == true) 
+	if (getMovingRight() == true)
 	{
 		shape.move(getEntitySpeedMultiplier() * deltaTime, 0.f);
 	}
-	if (getMovingLeft() == true) 
+	if (getMovingLeft() == true)
 	{
 		shape.move(-getEntitySpeedMultiplier() * deltaTime, 0.f);
 	}
-	if (getMovingUp() == true) 
+	if (getMovingUp() == true)
 	{
-		shape.move(0.f,-getEntitySpeedMultiplier() * deltaTime);
+		shape.move(0.f, -getEntitySpeedMultiplier() * deltaTime);
 	}
-	if (getMovingDown() == true) 
+	if (getMovingDown() == true)
 	{
-		shape.move(0.f,getEntitySpeedMultiplier() * deltaTime);
+		shape.move(0.f, getEntitySpeedMultiplier() * deltaTime);
 	}
 }

@@ -6,7 +6,7 @@ Game::Game(std::string aGameName)
 	init();
 }
 
-Game::~Game() 
+Game::~Game()
 {
 }
 
@@ -31,7 +31,7 @@ std::list<Entity*>* Game::GetObjects()
 void Game::init()
 {
 	//PLAYER: tag, speed, health, scale, vertex, posX, posY
-	Player* player = new Player("player", 10, 100, true, 15, 3, 20, 23);
+	Player* player = new Player("player", 10, 4, true, 15, 3, 20, 23);
 	objects.push_back(player);
 
 	//OBSTACLE tag, speed, scale, vertex, posX, posY, isReturning, isMovingNorth, isMovingEast, isMovingSouth, isMovingWest, theTimeOfMovement

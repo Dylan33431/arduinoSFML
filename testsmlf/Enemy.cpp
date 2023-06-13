@@ -63,8 +63,9 @@ void Enemy::moveTowardsTarget(float deltaTime)
 
 void Enemy::onCollisionEnter(Entity* collider)
 {
-	if(collider->getCanTakeDamage())
+	if (collider->getCanTakeDamage() == true)
 	{
-		collider->takeDamage(10);
+		collider->takeDamage(1);
+		collider->getShape().setPosition(100, 100);
 	}
 }

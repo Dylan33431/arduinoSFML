@@ -21,6 +21,7 @@ Player::Player(std::string aEntityTag,
 
 	speedMultiplier = entitySpeed * 10;
 	shape = sf::CircleShape(getEntityScale(), getPointCountEntity());
+	canTakeDamage = true;
 }
 
 Player::~Player()
@@ -58,13 +59,13 @@ void Player::onCollisionEnter(Entity* collider)
 
 void Player::playerMovement(float deltaTime)
 {
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) 
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 	{
-		shape.move(0.f,-getEntitySpeedMultiplier() * deltaTime);
+		shape.move(0.f, -getEntitySpeedMultiplier() * deltaTime);
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
-		shape.move(0.f,getEntitySpeedMultiplier() * deltaTime);
+		shape.move(0.f, getEntitySpeedMultiplier() * deltaTime);
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{

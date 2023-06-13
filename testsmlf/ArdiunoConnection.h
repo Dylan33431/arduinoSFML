@@ -1,11 +1,7 @@
 #pragma once
+#include <SFML/Graphics.hpp>
 #include <iostream>
-#include "LightLevel.h"
 #include "SerialPort.h"
-
-
-
-class LightLevel;
 
 class ArdiunoConnection
 {
@@ -20,12 +16,12 @@ public:
 
 private:
 	SerialPort arduino;
-	LightLevel lightlevel;
 	char output[SerialPort::MAX_DATA_SIZE];
 	char incoming[SerialPort::MAX_DATA_SIZE];
 	bool isStarted;
 	char port[SerialPort::MAX_DATA_SIZE];
 
-
 	bool sendData;
+	
+	int time;
 };

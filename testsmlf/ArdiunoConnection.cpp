@@ -2,7 +2,7 @@
 
 ArdiunoConnection::ArdiunoConnection()
 {
-	
+
 }
 
 ArdiunoConnection::~ArdiunoConnection()
@@ -14,22 +14,25 @@ void ArdiunoConnection::Update()
 {
 	char* buffer = new char[SerialPort::MAX_DATA_SIZE];
 	buffer[0] = '0';
+
+	time++;
+	std::cout << time << std::endl;
+
 	if (arduino.isConnected())
 	{
-
-		if(sf::Keyboard::isKeyPressed(sf::Keyboard::Num1))
+		if (time >= 250 && time <= 300)
 		{
 			sendMessage("1");
 		}
-		if(sf::Keyboard::isKeyPressed(sf::Keyboard::Num2))
+		if (time == 500 && time <= 550)
 		{
 			sendMessage("2");
 		}
-		if(sf::Keyboard::isKeyPressed(sf::Keyboard::Num3))
+		if (time == 750 && time <= 800)
 		{
 			sendMessage("3");
 		}
-		if(sf::Keyboard::isKeyPressed(sf::Keyboard::Num4))
+		if (time >= 1000)
 		{
 			sendMessage("4");
 		}
@@ -48,4 +51,4 @@ void ArdiunoConnection::sendMessage(std::string aMessage) {
 	std::string string = aMessage;
 	char* buffer = string.data();
 	arduino.writeSerialPort(buffer, sizeof(buffer));
-} 
+}

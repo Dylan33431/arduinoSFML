@@ -152,10 +152,8 @@
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="LightLevel.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Obstacle.cpp" />
-    <ClCompile Include="ObstacleMovingBasedOnLight.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Portal.cpp" />
     <ClCompile Include="SerialPort.cpp" />
@@ -166,9 +164,7 @@
     <ClInclude Include="Engine.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Game.h" />
-    <ClInclude Include="LightLevel.h" />
     <ClInclude Include="Obstacle.h" />
-    <ClInclude Include="ObstacleMovingBasedOnLight.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Portal.h" />
     <ClInclude Include="SerialPort.h" />

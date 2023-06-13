@@ -35,7 +35,7 @@ int Entity::getPointCountEntity()
 {
 	return pointCountEntity;
 }
-	
+
 void Entity::setHealth(int anHealth)
 {
 	health = anHealth;
@@ -52,7 +52,7 @@ void Entity::takeDamage(int damageAmount)
 
 void Entity::die()
 {
-	if(getHealth() < 0)
+	if (getHealth() < 0)
 	{
 		setEntityTag("dead");
 	}

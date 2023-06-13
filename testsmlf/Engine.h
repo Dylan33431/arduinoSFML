@@ -1,7 +1,6 @@
 #pragma once
 #include "Entity.h"
 #include "Game.h"
-#include "LightLevel.h"
 #include "ArdiunoConnection.h"
 #include "Player.h"
 #include "Obstacle.h"
@@ -9,8 +8,6 @@
 #include "Enemy.h"
 #include <string>
 #include <iostream>
-
-class LightLevel;
 
 class ArdiunoConnection;
 
@@ -35,7 +32,7 @@ public:
 
 	void setActiveGameIndex(int anActiveGameIndex);
 	int getActiveGameIndex();
-	
+
 	void setWindowInformation(std::string anWindowName, int aWindowWidth, int aWindowheight);
 private:
 
@@ -52,6 +49,8 @@ private:
 	void colorShapes();
 	void objectStaringPos();
 
+	void playerLights();
+
 	sf::RenderWindow* window;
 	sf::Event event;
 
@@ -63,7 +62,6 @@ private:
 	std::string windowName;
 
 	Game* activeGame;
-	LightLevel lightLevel;
 	ArdiunoConnection ardiunoConnection;
 
 	int windowWidth;
@@ -72,4 +70,11 @@ private:
 
 	bool isRunning;
 	bool isGameStarted;
+	
+	int playerhp;
+	bool q = true;
+	bool w = true;
+	bool e = true;
+	bool r = true;
+	bool t = true;
 };

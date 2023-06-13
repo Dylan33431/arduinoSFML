@@ -1,6 +1,6 @@
 #include "Engine.h"
 
-Engine::Engine() 
+Engine::Engine()
 {
 	setWindowInformation("tha game", 1000, 1000);
 	Init();
@@ -24,11 +24,11 @@ void Engine::update()
 		setGameIsStarted(false);
 	}
 	games.at(activeGameIndex)->gameUpdate(getDeltaTime());
-	lightLevel.update();
 	ardiunoConnection.Update();
 	windowRenderer();
 	windowCollision();
 	entityCollsion();
+	playerLights();
 }
 
 float Engine::getDeltaTime()
@@ -53,7 +53,7 @@ bool Engine::getGameIsStarted()
 void Engine::addGame(Game* game, bool isActiveGame)
 {
 	games.push_back(game);
-	if (isActiveGame) 
+	if (isActiveGame)
 	{
 		activeGameIndex = games.size() - 1;
 	}
@@ -75,7 +75,7 @@ void Engine::setWindowInformation(std::string anWindowName, int aWindowWidth, in
 	windowHeight = aWindowheight;
 }
 
-void Engine::Init() 
+void Engine::Init()
 {
 	window = new sf::RenderWindow(sf::VideoMode(getWindowWidth(), getWindowHeight()), getWindowName());
 }
@@ -142,15 +142,15 @@ void Engine::entityCollsion()
 	std::list<Entity*>::iterator it;
 	std::list<Entity*>::iterator it2;
 	bool isColliding = false;
-	
+
 	for (it = games.at(activeGameIndex)->GetObjects()->begin(); it != games.at(activeGameIndex)->GetObjects()->end(); ++it)
 	{
 		for (it2 = std::next(it, 1); it2 != games.at(activeGameIndex)->GetObjects()->end(); ++it2)
 		{
 			if ((*it)->getShape().getGlobalBounds().intersects((*it2)->getShape().getGlobalBounds()))
 			{
-					(*it)->onCollisionEnter(*it2);
-					(*it2)->onCollisionEnter(*it);
+				(*it)->onCollisionEnter(*it2);
+				(*it2)->onCollisionEnter(*it);
 			}
 		}
 	}
@@ -163,17 +163,17 @@ void Engine::drawShapes()
 		window->draw(e->getShape());
 	}
 }
-void Engine::colorShapes() 
+void Engine::colorShapes()
 {
 	for (Entity* e : *games.at(getActiveGameIndex())->GetObjects())
 	{
-		if (e->getEntityTag() == "obstacle") 
+		if (e->getEntityTag() == "obstacle")
 		{
 			e->getShape().setFillColor(sf::Color(182, 182, 182));
 		}
 		if (e->getEntityTag() == "portal")
 		{
-			e->getShape().setFillColor(sf::Color(82, 138, 183,170));
+			e->getShape().setFillColor(sf::Color(82, 138, 183, 170));
 		}
 		if (e->getEntityTag() == "player")
 		{
@@ -190,6 +190,42 @@ void Engine::objectStaringPos()
 	for (Entity* e : *games.at(getActiveGameIndex())->GetObjects())
 	{
 		e->getShape().setPosition(e->getStartingPosX() - e->scale, e->getStartingPosY() - e->scale);
+	}
+}
+
+void Engine::playerLights()
+{
+	for (Entity* e : *games.at(getActiveGameIndex())->GetObjects())
+	{
+		if(e->getEntityTag() == "player")
+		{
+			playerhp = e->getHealth();
+		}
+	}
+	if (playerhp == 4 && q == true)
+	{
+		ardiunoConnection.sendMessage("5");
+		q = false;
+	}
+	if (playerhp == 3 && w == true)
+	{
+		ardiunoConnection.sendMessage("6");
+		w = false;
+	}
+	if (playerhp == 2 && e == true)
+	{
+		ardiunoConnection.sendMessage("7");
+		e = false;
+	}
+	if (playerhp == 1 && r == true)
+	{
+		ardiunoConnection.sendMessage("8");
+		r = false;
+	}
+	if (playerhp == 0 && t == true)
+	{
+		ardiunoConnection.sendMessage("9");
+		t = false;
 	}
 }
 
